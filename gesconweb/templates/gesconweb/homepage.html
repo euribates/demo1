@@ -1,15 +1,22 @@
 {% extends 'gesconweb/base.html' %}
 
+{% block title %}Listado de aplicaciones{% endblock %}
+
 {% block content %}
 
-<p>Ficheros en raiz:</p>
-<ul>
-    {% for f in ficheros %}
-        <li> {{ f|upper }} </li>
-    {% endfor %}
-</ul>
+<h1>Aplicaciones <small>Todas</small></h1>
+<h2>Hay <span class="badge">{{ apps.count }}</span> aplicaciones.</h2>
 
-Hay {{ ficheros|length }} ficheros.</p>
+<table class="table">
+    {% for app in apps %}
+      <tr>
+          <td> <a href="{{ app.url }}"> {{ app.nombre }} <a></td>
+          <td> {{ app.descripcion }} </td>
+          <td> {{ app.activo }} </td>
+      </tr>
+    {% endfor %}
+</table>
+
 
 {% endblock %}
 
