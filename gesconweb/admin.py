@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from gesconweb.models import Aplicativo
+from gesconweb.models import Aplicativo, Permiso
 
 class AplicativoAdmin(admin.ModelAdmin):
      
@@ -16,3 +16,7 @@ class AplicativoAdmin(admin.ModelAdmin):
 
 admin.site.register(Aplicativo, AplicativoAdmin)
 
+class PermisoAdmin(admin.ModelAdmin):
+     pass
+
+admin.site.register(Permiso, PermisoAdmin)

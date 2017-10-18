@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import Group
 
 # Create your models here.
 
@@ -15,3 +16,17 @@ class Aplicativo(models.Model):
 
     def __str__(self):
         return '{} (Creada el {})'.format(self.nombre, self.f_creacion)
+
+class Permiso(models.Model):
+    aplicativo = models.ForeignKey(Aplicativo)
+    grupo = models.ForeignKey(Group)
+    f_creacion = models.DateField(auto_now_add=True)
+    orden = models.IntegerField(default=0)
+
+    def __str__(self):
+        return 'Permiso al grupo {} para el aplicativo {}'.format(
+            self.grupo,
+            self.aplicativo.nombre,
+            )
+
+
