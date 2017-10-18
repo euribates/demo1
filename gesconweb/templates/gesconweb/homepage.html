@@ -1,0 +1,16 @@
+{% extends 'gesconweb/base.html' %}
+
+{% block content %}
+
+<p>Ficheros en raiz:</p>
+<ul>
+    {% for f in ficheros %}
+        <li> {{ f|upper }} </li>
+    {% endfor %}
+</ul>
+
+Hay {{ ficheros|length }} ficheros.</p>
+
+{% endblock %}
+
+{% block icono %} {% endblock %}
