@@ -14,9 +14,8 @@ class AplicativoAdmin(admin.ModelAdmin):
         'slug': ('nombre', ),
         }
 
-admin.site.register(Aplicativo, AplicativoAdmin)
-
 class PermisoAdmin(admin.ModelAdmin):
      pass
 
 admin.site.register(Permiso, PermisoAdmin)
+admin.site.register(Aplicativo, AplicativoAdmin)
