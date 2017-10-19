@@ -5,16 +5,27 @@
 {% block content %}
 
 <h1>Aplicaciones <small>Todas</small></h1>
-<h2>Hay <span class="badge">{{ apps.count }}</span> aplicaciones.</h2>
+<h2>Hay <span class="badge">{{ apps|length }}</span> aplicaciones.</h2>
 
-<table class="table">
+<table class="table table-striped">
+ <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Descripción
+    <th>Activo</th>
+    <th>Permisos</th>
+  </tr>
+ </thead>
+ <tbody>
     {% for app in apps %}
       <tr>
-          <td> <a href="{{ app.url }}"> {{ app.nombre }} <a></td>
+          <td> <a href="{% url 'apps:detalle_aplicativo' app.id %}"> {{ app.nombre }} <a></td>
           <td> {{ app.descripcion }} </td>
           <td> {{ app.activo }} </td>
+          <td> permiso:  {{ app.permiso_set.all }} </td>
       </tr>
     {% endfor %}
+ </tbody>
 </table>
 
 

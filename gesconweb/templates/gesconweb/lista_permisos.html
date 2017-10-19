@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %} Listado de grupos {% endblock %}
+
+{% block content %}
+
+<h1>Listado de grupos</small></h1>
+<h2>Hay <span class="badge">{{ grupos|length }}</span> grupos.</h2>
+
+<table class="table table-striped">
+ <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Permisos</th>
+  </tr>
+ </thead>
+ <tbody>
+    {% for g in grupos %}
+      <tr>
+          <td> {{ g.name }} </td>
+          <td> <ul>{% for p in g.permiso_set.all %}
+                 <li> {{ p }}</li>
+                 {% endfor %}
+            </ul>
+          </td>
+      </tr>
+    {% endfor %}
+ </tbody>
+</table>
+
+
+{% endblock %}
+
+{% block icono %} {% endblock %}

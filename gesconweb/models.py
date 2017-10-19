@@ -26,7 +26,7 @@ class Permiso(models.Model):
     def __str__(self):
         return 'Permiso al grupo {} para el aplicativo {}'.format(
             self.grupo,
-            self.aplicativo.nombre,
+            self.aplicativo,
             )
 
 
